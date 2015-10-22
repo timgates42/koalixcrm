@@ -476,10 +476,10 @@ except ImportError:
 # without Mezzanine installed, as the case may be when using the
 # fabfile, where setting the dynamic settings below isn't strictly
 # required.
+PROJECT_ROOT = str(PROJECT_ROOT.path())
 try:
     from mezzanine.utils.conf import set_dynamic_settings
 except ImportError:
     pass
 else:
-    PROJECT_ROOT = str(PROJECT_ROOT.path())
     set_dynamic_settings(globals())

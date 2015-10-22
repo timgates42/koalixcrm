@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 *.db
+.tox
 .DS_Store
 .coverage
 local_settings.py
