@@ -10,8 +10,8 @@ KoalixERP is open source and free to use.
 ## Project Status
 
 Code status:
-    [![Build Status](https://travis-ci.org/tfroehlich82/koalixcrm.svg)](https://travis-ci.org/tfroehlich82/koalixcrm)
-    [![Coverage Status](https://img.shields.io/coveralls/tfroehlich82/koalixcrm.svg)](https://coveralls.io/r/tfroehlich82/koalixcrm)
+    [![Build Status](https://travis-ci.org/Swappsco/koalixerp.svg)](https://travis-ci.org/Swappsco/koalixerp.svg)
+    [![Coverage Status](https://coveralls.io/repos/Swappsco/koalixerp/badge.svg?branch=master&service=github)](https://coveralls.io/github/Swappsco/koalixerp?branch=master)
     [![Code Health](https://landscape.io/github/tfroehlich82/koalixcrm/master/landscape.png)](https://landscape.io/github/tfroehlich82/koalixcrm/master)
 
 Package requirements status:
