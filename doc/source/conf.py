@@ -188,12 +188,12 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'KoalixCRMdoc'
+htmlhelp_basename = 'KoalixERPdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
 
-latex_elements = {
+#latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
 
@@ -202,15 +202,15 @@ latex_elements = {
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
-}
+#}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-  ('new_index', 'KoalixCRM.tex', u'Koalix ERP Documentation',
-   u'Aaron Riedener, Thorsten Froehlich', 'manual'),
-]
+#latex_documents = [
+#  ('new_index', 'KoalixCRM.tex', u'Koalix ERP Documentation',
+#   u'Aaron Riedener, Thorsten Froehlich', 'manual'),
+#]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
@@ -238,7 +238,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('new_index', 'koalixcrm', u'Koalix ERP Documentation',
+    ('new_index', 'koalixerp', u'Koalix ERP Documentation',
      [u'Aaron Riedener, Thorsten Froehlich'], 1)
 ]
 
@@ -252,7 +252,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('new_index', 'KoalixCRM', u'Koalix ERP Documentation',
+  ('new_index', 'KoalixERP', u'Koalix ERP Documentation',
    u'Aaron Riedener, Thorsten Froehlich', 'KoalixCRM', 'One line description of project.',
    'Miscellaneous'),
 ]
