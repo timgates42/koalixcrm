@@ -18,8 +18,7 @@ Package requirements status:
     [![Requirements Status](https://requires.io/github/Swappsco/koalixerp/requirements.svg?branch=master)](https://requires.io/github/Swappsco/koalixerp/requirements/?branch=master)
 
 Documentation status:
-    [![Documentation Status](https://readthedocs.org/projects/koalix-erp/badge/?version=latest)](https://readthedocs.org/projects/koalix-erp/?badge=latest)
-
+    [![Documentation Status](https://readthedocs.org/projects/koalix-erp/badge/?version=latest)](http://koalix-erp.readthedocs.org/en/latest/?badge=latest)
 *****************************************************
 Note:
 At this moment the project is not yet open for
