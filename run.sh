@@ -1,4 +1,4 @@
-#!/usr/bin/env bashchm
+#!/bin/bash
 pip install -r requirements.txt
 python manage.py createinitialrevisions
 python manage.py migrate
