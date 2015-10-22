@@ -484,9 +484,9 @@ languages_english = []
 
 if babel:
     try:
-        locales = babel.localedata.list() # v0.9.6 and before
+        locales = babel.localedata.list()  # v0.9.6 and before
     except AttributeError:
-        locales = babel.localedata.locale_identifiers() # v1.0 and later
+        locales = babel.localedata.locale_identifiers()  # v1.0 and later
     locales.sort()
     for l_id in locales:
         l = babel.Locale(l_id)
