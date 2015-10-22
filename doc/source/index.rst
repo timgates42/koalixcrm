@@ -1,12 +1,12 @@
-.. Koalix CRM documentation master file, created by
+.. Koalix ERP documentation master file, created by
    sphinx-quickstart on Wed Oct 15 17:36:17 2014.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Koalix CRM's documentation!
+Welcome to Koalix ERP's documentation!
 ======================================
 
-Koalix CRM - Beautiful CRM/ERP for small business
+Koalix ERP - Beautiful ERP for small business
 
 
 
@@ -17,11 +17,11 @@ Koalix CRM - Beautiful CRM/ERP for small business
 Features
 --------
 
-Koalix CRM provides following benefits:
+Koalix ERP provides following benefits:
 
     -   **Clear and beautiful user interface:**
 
-        Koalix CRM provides an beautiful and easy to use graphical user interface with a lot of nice features
+        Koalix ERP provides an beautiful and easy to use graphical user interface with a lot of nice features
 
     -   **Easily create your own templates for PDF export:**
 

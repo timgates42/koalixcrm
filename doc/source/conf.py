@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Koalix CRM documentation build configuration file, created by
+# Koalix ERP documentation build configuration file, created by
 # sphinx-quickstart on Wed Oct 15 17:36:17 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Koalix CRM'
+project = u'Koalix ERP'
 copyright = u'2014, Aaron Riedener, Thorsten Fröhlich'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -208,7 +208,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('new_index', 'KoalixCRM.tex', u'Koalix CRM Documentation',
+  ('new_index', 'KoalixCRM.tex', u'Koalix ERP Documentation',
    u'Aaron Riedener, Thorsten Froehlich', 'manual'),
 ]
 
@@ -238,7 +238,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('new_index', 'koalixcrm', u'Koalix CRM Documentation',
+    ('new_index', 'koalixcrm', u'Koalix ERP Documentation',
      [u'Aaron Riedener, Thorsten Froehlich'], 1)
 ]
 
@@ -252,7 +252,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('new_index', 'KoalixCRM', u'Koalix CRM Documentation',
+  ('new_index', 'KoalixCRM', u'Koalix ERP Documentation',
    u'Aaron Riedener, Thorsten Froehlich', 'KoalixCRM', 'One line description of project.',
    'Miscellaneous'),
 ]

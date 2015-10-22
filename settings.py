@@ -134,7 +134,7 @@ DASHBOARD_TAGS = (
 # INSTALLED_APPS setting.
 USE_SOUTH = False
 
-SITE_TITLE = 'Koalix CRM'
+SITE_TITLE = 'Koalix ERP'
 
 
 ########################
