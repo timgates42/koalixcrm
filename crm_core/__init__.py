@@ -1,3 +1,3 @@
 """
-This module provides the Koalix CRM core functionality
+This module provides the Koalix ERP core functionality
 """
