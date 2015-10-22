@@ -18,7 +18,7 @@ Package requirements status:
     [![Requirements Status](https://requires.io/github/tfroehlich82/koalixcrm/requirements.svg?branch=master)](https://requires.io/github/tfroehlich82/koalixcrm/requirements/?branch=master)
 
 Documentation status:
-    [![Documentation Status](https://readthedocs.org/projects/koalix-crm/badge/?version=latest)](https://readthedocs.org/projects/koalix-crm/?badge=latest)
+    [![Documentation Status](https://readthedocs.org/projects/koalix-erp/badge/?version=latest)](https://readthedocs.org/projects/koalix-erp/?badge=latest)
 
 *****************************************************
 Note:
