@@ -15,7 +15,7 @@ Code status:
     [![Code Health](https://landscape.io/github/Swappsco/koalixerp/master/landscape.svg?style=flat)](https://landscape.io/github/Swappsco/koalixerp/master)
 
 Package requirements status:
-    [![Requirements Status](https://requires.io/github/Swappsco/koalixerp/requirements.svg?branch=release%2F0.6.0)](https://requires.io/github/Swappsco/koalixerp/requirements/?branch=master)
+    [![Requirements Status](https://requires.io/github/Swappsco/koalixerp/requirements.svg?branch=master)](https://requires.io/github/Swappsco/koalixerp/requirements/?branch=master)
 
 Documentation status:
     [![Documentation Status](https://readthedocs.org/projects/koalix-erp/badge/?version=latest)](https://readthedocs.org/projects/koalix-erp/?badge=latest)
