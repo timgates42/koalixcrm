@@ -14,10 +14,10 @@ from os import path
 import reversion
 from weasyprint import HTML
 from international.models import countries, currencies, countries_raw
-from const.postaladdressprefix import POSTAL_ADDRESS_PREFIX_CHOICES, PostalAddressPrefix
-from const.purpose import POSTAL_ADDRESS_PURPOSE_CHOICES, PHONE_ADDRESS_PURPOSE_CHOICES, \
+from .const.postaladdressprefix import POSTAL_ADDRESS_PREFIX_CHOICES, PostalAddressPrefix
+from .const.purpose import POSTAL_ADDRESS_PURPOSE_CHOICES, PHONE_ADDRESS_PURPOSE_CHOICES, \
     EMAIL_ADDRESS_PURPOSE_CHOICES, EmailAddressPurpose, PhoneAddressPurpose, PostalAddressPurpose
-from const.states import CONTRACT_STATE_CHOICES, ContractStatesEnum, ContractStatesLabelEnum
+from .const.states import CONTRACT_STATE_CHOICES, ContractStatesEnum, ContractStatesLabelEnum
 from django_extensions.db.fields import CreationDateTimeField, ModificationDateTimeField
 from solo.models import SingletonModel
 
