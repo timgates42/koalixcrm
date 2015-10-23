@@ -23,7 +23,7 @@ sftp-config.json
 *.py[cod]
 *.pyo
 *.pyc
-__pycache__/*
+__pycache__
 
 # Logs
 *.log
