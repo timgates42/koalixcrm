@@ -1,14 +1,5 @@
 from __future__ import absolute_import, unicode_literals
 
-import environ
-
-ROOT_DIR = environ.Path(__file__) -1 # three folder back (/a/b/c/ - 3 = /)
-#environ.Env.read_env() # reading .env file
-
-APPS_DIR = ROOT_DIR
-
-PROJECT_ROOT = ROOT_DIR
-
 ######################
 # CARTRIDGE SETTINGS #
 ######################
@@ -247,13 +238,13 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 #############
 # DATABASES #
 #############
-print(str(PROJECT_ROOT.path('default.db')), 'dasdasdasdadasdasd')
+
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
         "ENGINE": "django.db.backends.",
         # DB name or path to database file if using sqlite3.
-        "NAME": str(PROJECT_ROOT.path('default.db')),
+        "NAME": "",
         # Not used with sqlite3.
         "USER": "",
         # Not used with sqlite3.
@@ -277,15 +268,15 @@ MIGRATION_MODULES = {
 import os
 
 # Full filesystem path to the project.
-#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Name of the directory for the project.
-#PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
+PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 
 # Every cache key will get prefixed with this value - here we set it to
 # the name of the directory the project is in to try and use something
 # project specific.
-#CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_DIRNAME
+CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_DIRNAME
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -295,7 +286,7 @@ STATIC_URL = "/static/"
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = str(ROOT_DIR('staticfiles'))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -307,49 +298,16 @@ MEDIA_URL = os.path.join(STATIC_URL, "media/")
 MEDIA_ROOT = os.path.join(STATIC_ROOT, "media")
 
 # Package/module name to import the root urlpatterns from for the project.
-ROOT_URLCONF = "urls.py"
+ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 
-
-# TEMPLATE CONFIGURATION
-# ------------------------------------------------------------------------------
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES = [
-    {
-        # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-        'DIRS': [
-            str(APPS_DIR.path('templates')),
-            str(PROJECT_ROOT.path('templates')),
-        ],
-        'OPTIONS': {
-            # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-            'debug': DEBUG,
-            # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
-            # https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types
-            'loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-            ],
-            # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-            'context_processors': [
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-                "django.core.context_processors.debug",
-                "django.core.context_processors.i18n",
-                "django.core.context_processors.static",
-                "django.core.context_processors.media",
-                "django.core.context_processors.request",
-                "django.core.context_processors.tz",
-                "mezzanine.conf.context_processors.settings",
-                "mezzanine.pages.context_processors.page",
-                # Your stuff: custom template context processors go here
-            ],
-        },
-    },
-]
-
-TEMPLATE_CONTEXT_PROCESSORS = TEMPLATES[0]['OPTIONS']['context_processors']
+# Put strings here, like "/home/html/django_templates"
+# or "C:/www/django/templates".
+# Always use forward slashes, even on Windows.
+# Don't forget to use absolute paths, not relative paths.
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, "crm_core/templates"),
+    os.path.join(PROJECT_ROOT, "templates"),
+)
 
 
 ################
@@ -395,6 +353,22 @@ INSTALLED_APPS = (
 
     # Uncomment the following if you want to use mezzanine's twitter plugin
     # "mezzanine.twitter",
+)
+
+# List of processors used by RequestContext to populate the context.
+# Each one should be a callable that takes the request object as its
+# only parameter and returns a dictionary to add to the context.
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.static",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    "django.core.context_processors.tz",
+    "mezzanine.conf.context_processors.settings",
+    "mezzanine.pages.context_processors.page",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -476,7 +450,6 @@ except ImportError:
 # without Mezzanine installed, as the case may be when using the
 # fabfile, where setting the dynamic settings below isn't strictly
 # required.
-PROJECT_ROOT = str(PROJECT_ROOT.path())
 try:
     from mezzanine.utils.conf import set_dynamic_settings
 except ImportError:
