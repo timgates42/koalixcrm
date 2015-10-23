@@ -4,7 +4,7 @@ from datetimewidget.widgets import DateWidget
 from django import forms
 from crispy_forms.helper import FormHelper
 from django.forms import inlineformset_factory
-from models import PurchaseOrder, Quote, Invoice, CustomerCartItem, ProductUnit, ProductTax
+from .models import PurchaseOrder, Quote, Invoice, CustomerCartItem, ProductUnit, ProductTax
 from cartridge.shop.models import Cart, Product
 from ajax_select import make_ajax_field
 

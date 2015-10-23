@@ -16,7 +16,7 @@ try:
     import babel
 except ImportError:
     babel = None
-    print "WARNING, language names will not be available"
+    print("WARNING, language names will not be available")
 
 __all__ = ['countries_raw', 'countries', 'currencies', 'languages',
            'languages_native', 'languages_english', 'Country']
@@ -513,4 +513,3 @@ class Country(models.Model):
     class Meta:
         verbose_name = _('country')
         verbose_name_plural = _('countries')
-

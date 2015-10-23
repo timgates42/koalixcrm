@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 from crm_core.custom.mixins import UpdateWithModifiedByMixin, CreateWithModifieByMixin, \
     CreateWithInlinesAndModifiedByMixin, UpdateWithInlinesAndModifiedByMixin
 from crm_core import forms, models
-from tables import ContractTable, CustomerTable, SupplierTable, ProductTable, TaxTable, BillingCycleTable, UnitTable, \
+from .tables import ContractTable, CustomerTable, SupplierTable, ProductTable, TaxTable, BillingCycleTable, UnitTable, \
     CustomerGroupTable, ProductCategoryTable
 from cartridge.shop import models as cartridge_models
 from django.conf import settings
