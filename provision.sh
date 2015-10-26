@@ -12,6 +12,7 @@ sudo dpkg-reconfigure locales
 # Install git for version control, pip for install python packages
 echo 'Installing pip & virtualenv...'
 sudo apt-get update
+sudo apt-get dist-upgrade
 sudo apt-get install -y automake build-essential curl firefox gettext graphviz-dev libbz2-dev libcairo2 libffi-dev libfreetype6-dev libgdk-pixbuf2.0-0 libjpeg8-dev liblcms1-dev libpango1.0-0 libpq-dev libreadline-dev libreadline6 libreadline6-dev libsqlite3-dev libssl-dev libtiff4-dev libtool libwebp-dev libxml2 libxml2-dev llvm postgresql python-dev python-pip python-setuptools python-virtualenv python3-dev python3-lxml python3-pip shared-mime-info wget zlib1g-dev
 
 echo 'Configuring the project virtual enviroment'
