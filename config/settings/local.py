@@ -52,10 +52,18 @@ DEBUG_TOOLBAR_CONFIG = {
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
 }
-
+CRISPY_FAIL_SILENTLY = not DEBUG
 # django-extensions
 # -----------------------------------------------------------------------------
-INSTALLED_APPS += ('django_extensions', )
+# OPTIONAL APPLICATIONS
+# These will be added to ``INSTALLED_APPS``, only if available.
+OPTIONAL_APPS = (
+    "debug_toolbar",
+    "django_extensions",
+    PACKAGE_NAME_FILEBROWSER,
+    PACKAGE_NAME_GRAPPELLI,
+)
+INSTALLED_APPS += ('django_extensions', OPTIONAL_APPS)
 
 # TESTING
 # -----------------------------------------------------------------------------
