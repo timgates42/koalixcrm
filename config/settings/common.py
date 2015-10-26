@@ -134,15 +134,10 @@ DASHBOARD_TAGS = (
 # )
 
 # Setting to turn on featured images for blog posts. Defaults to False.
-#
 # BLOG_USE_FEATURED_IMAGE = True
 
-# If True, the south application will be automatically added to the
-# INSTALLED_APPS setting.
-USE_SOUTH = False
-
 SITE_TITLE = 'Koalix ERP'
-
+SITE_TAGLINE = 'An ERP for PyMES with a nicer interface.'
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -158,11 +153,10 @@ MANAGERS = ADMINS
 
 ANONYMOUS_USER_ID = -1
 AUTH_USER_MODEL = "auth.User"
-
 LOGIN_URL = "/login/"
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+# See https://docs.djangoproject.com/en/1.8/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
@@ -208,7 +202,6 @@ DEBUG = False
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -242,7 +235,6 @@ STATICFILES_FINDERS = (
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
 
-
 #############
 # DATABASES #
 #############
@@ -268,11 +260,7 @@ MIGRATION_MODULES = {
     "shop": "crm_core.migrations.shop",
 }
 
-
-#########
-# PATHS #
-#########
-
+# PATHS
 import os
 
 # Full filesystem path to the project.
@@ -317,10 +305,7 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, "templates"),
 )
 
-
-################
-# APPLICATIONS #
-################
+# APPLICATIONS
 
 INSTALLED_APPS = (
     "django.contrib.admin",
@@ -407,14 +392,10 @@ MIDDLEWARE_CLASSES = (
 # at the moment we are using custom forks of them.
 PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
 PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
-
 CRISPY_FAIL_SILENTLY = not DEBUG
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
-
-#########################
-# OPTIONAL APPLICATIONS #
-#########################
+# OPTIONAL APPLICATIONS
 
 # These will be added to ``INSTALLED_APPS``, only if available.
 OPTIONAL_APPS = (
@@ -428,7 +409,6 @@ SEARCH_MODEL_CHOICES = None
 SHOP_OPTION_TYPE_CHOICES = ((1, 'Size'), (2, 'Colour'))
 SHOP_ORDER_STATUS_CHOICES = ((1, 'Unprocessed'), (2, 'Processed'))
 SHOP_USE_VARIATIONS = False
-
 AJAX_LOOKUP_CHANNELS = {
     'unit': {'model': 'crm_core.models.QuotePosition',
              'search_field': 'product'},
@@ -436,24 +416,7 @@ AJAX_LOOKUP_CHANNELS = {
                    'search_field': 'product'},
 }
 
-
-##################
-# LOCAL SETTINGS #
-##################
-
-# Allow any settings to be defined in local_settings.py which should be
-# ignored in your version control system allowing for settings to be
-# defined per machine.
-try:
-    from local_settings import *
-except ImportError:
-    pass
-
-
-####################
-# DYNAMIC SETTINGS #
-####################
-
+# DYNAMIC SETTINGS
 # set_dynamic_settings() will rewrite globals based on what has been
 # defined so far, in order to provide some better defaults where
 # applicable. We also allow this settings module to be imported
