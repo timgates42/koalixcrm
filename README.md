@@ -20,7 +20,7 @@ features and to upgrade the code to be compatible with
 Python3.
 *****************************************************
 
-Read the documentation for installation instructions at http://koalix-crm.readthedocs.org/en/master/
+Read the documentation for installation instructions [here](http://koalix-erp.readthedocs.org/en/latest/installation.html)
 
 ## Features
 
