@@ -13,13 +13,20 @@ sudo dpkg-reconfigure locales
 echo 'Installing pip & virtualenv...'
 sudo apt-get update
 sudo apt-get dist-upgrade -y
-sudo apt-get install -y automake build-essential curl firefox gettext graphviz-dev libbz2-dev libcairo2 libffi-dev libfreetype6-dev libgdk-pixbuf2.0-0 libjpeg8-dev liblcms1-dev libpango1.0-0 libpq-dev libreadline-dev libreadline6 libreadline6-dev libsqlite3-dev libssl-dev libtiff4-dev libtool libwebp-dev libxml2 libxml2-dev llvm postgresql python-dev python-pip python-setuptools python-virtualenv python3-dev python3-lxml python3-pip shared-mime-info wget zlib1g-dev
+sudo apt-get install -y git curl autoconf automake build-essential python-virtualenv
+sudo apt-get install -y postgresql libpq-dev
+sudo apt-get install -y python3-dev python3-pip libcairo2 shared-mime-info
+sudo apt-get install -y libpango1.0-0 libgdk-pixbuf2.0-0 libffi-dev
+sudo apt-get install -y libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
+sudo apt-get install -y liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev
+sudo apt-get install -y libxml2 libxml2-dev libxslt-dev libxslt1-dev
 
 echo 'Configuring the project virtual enviroment'
 mkdir ~vagrant/.virtualenvs
 chown vagrant:vagrant ~vagrant/.virtualenvs
 virtualenv --python=python3 --no-site-packages ~vagrant/.virtualenvs/env
 source ~vagrant/.virtualenvs/env/bin/activate
+pip install --upgrade pip
 
 # Postgres Setup
 echo "Configuring Postgres DATABASE"
@@ -34,7 +41,6 @@ sudo service postgresql restart
 # Config virtualenv
 
 cd /vagrant/
-./install_os_dependencies.sh install
 # Commented this because we are already running the deployment process with this
 # bash script, but will be available for the moment is needed.
 # ./install_docker_dependencies.sh
