@@ -56,11 +56,11 @@ CRISPY_FAIL_SILENTLY = not DEBUG
 # -----------------------------------------------------------------------------
 # OPTIONAL APPLICATIONS
 # These will be added to ``INSTALLED_APPS``, only if available.
+PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
 INSTALLED_APPS += (
     "debug_toolbar",
     "django_extensions",
     PACKAGE_NAME_FILEBROWSER,
-    PACKAGE_NAME_GRAPPELLI,
 )
 # TESTING
 # -----------------------------------------------------------------------------

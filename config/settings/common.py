@@ -281,6 +281,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # APPLICATIONS
 INSTALLED_APPS = (
+    "grappelli_safe",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -363,8 +364,6 @@ MIDDLEWARE_CLASSES = (
 
 # Store these package names here as they may change in the future since
 # at the moment we are using custom forks of them.
-PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
-PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 SEARCH_MODEL_CHOICES = None
