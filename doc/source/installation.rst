@@ -92,7 +92,7 @@ Windows
 Common Package Requirements
 ===========================
 
-Following requirements are common for both, development and demo installation of Koalix CRM.
+Following requirements are common for both, development and demo installation of Koalix ERP.
 
 Please install the following packages:
 

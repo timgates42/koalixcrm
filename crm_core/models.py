@@ -14,10 +14,10 @@ from os import path
 import reversion
 from weasyprint import HTML
 from international.models import countries, currencies, countries_raw
-from const.postaladdressprefix import POSTAL_ADDRESS_PREFIX_CHOICES, PostalAddressPrefix
-from const.purpose import POSTAL_ADDRESS_PURPOSE_CHOICES, PHONE_ADDRESS_PURPOSE_CHOICES, \
+from .const.postaladdressprefix import POSTAL_ADDRESS_PREFIX_CHOICES, PostalAddressPrefix
+from .const.purpose import POSTAL_ADDRESS_PURPOSE_CHOICES, PHONE_ADDRESS_PURPOSE_CHOICES, \
     EMAIL_ADDRESS_PURPOSE_CHOICES, EmailAddressPurpose, PhoneAddressPurpose, PostalAddressPurpose
-from const.states import CONTRACT_STATE_CHOICES, ContractStatesEnum, ContractStatesLabelEnum
+from .const.states import CONTRACT_STATE_CHOICES, ContractStatesEnum, ContractStatesLabelEnum
 from django_extensions.db.fields import CreationDateTimeField, ModificationDateTimeField
 from solo.models import SingletonModel
 
@@ -52,7 +52,7 @@ class Contact(models.Model):
     def save(self, *args, **kwargs):
         super(Contact, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         if self.prefix:
             return "%s %s" % (self.get_prefix, self.name)
         return self.name
@@ -74,7 +74,7 @@ class EmailAddress(models.Model):
     def get_purpose(self):
         return EmailAddressPurpose.choices[self.purpose]
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s" % self.email
 
 
@@ -94,7 +94,7 @@ class PhoneAddress(models.Model):
     def get_purpose(self):
         return PhoneAddressPurpose.choices[self.purpose]
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s" % self.phone
 
 
@@ -122,7 +122,7 @@ class PostalAddress(models.Model):
     def get_country(self):
         return list(c[4].partition(',')[0].partition('(')[0].strip() for c in countries_raw if c[1] == self.country)[0]
 
-    def __unicode__(self):
+    def __str__(self):
         if self.addressline1 and self.zipcode and self.city:
             return '%s, %s %s' % (self.addressline1, self.zipcode, self.city)
         elif self.addressline1 and self.city:
@@ -259,7 +259,7 @@ class Customer(Contact, Displayable):
             return "%s %s" % (self.firstname, self.name)
         return self.name
 
-    def __unicode__(self):
+    def __str__(self):
         if self.prefix and self.firstname:
             return "%s %s %s" % (self.get_prefix, self.firstname, self.name)
         else:
@@ -281,7 +281,7 @@ class Supplier(Contact, Displayable):
     def get_absolute_url(self):
         return reverse('supplier_detail', args=[str(self.id)])
 
-    def __unicode__(self):
+    def __str__(self):
         if self.prefix:
             return "%s %s" % (self.get_prefix, self.name)
         return self.name
@@ -327,14 +327,14 @@ class CustomerBillingCycle(models.Model):
             ('view_customerbillingcycle', 'Can view billing cycles'),
         )
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s %s" % (self.prefix, self.name)
 
 
 class CustomerGroup(models.Model):
     name = models.CharField(verbose_name=_('Name'), max_length=300)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -456,7 +456,7 @@ class Contract(Displayable):
     def has_invoices(self):
         return bool(self.invoices.count() > 0)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.get_name()
 
 
@@ -515,7 +515,7 @@ class PurchaseOrder(SalesContract, Displayable):
     def get_price(self):
         return "%s %s" % (self.cart.total_price(), self.contract.default_currency)
 
-    def __unicode__(self):
+    def __str__(self):
         return _("Purchase Order") + " #" + str(self.id)
 
     @transaction.atomic()
@@ -605,7 +605,7 @@ class Quote(SalesContract, Displayable):
     def get_price(self):
         return "%s %s" % (self.cart.total_price(), self.contract.default_currency)
 
-    def __unicode__(self):
+    def __str__(self):
         return _('Quote') + ' #' + str(self.id)
 
     @transaction.atomic()
@@ -675,7 +675,7 @@ class Invoice(SalesContract, Displayable):
     def get_price(self):
         return "%s %s" % (self.cart.total_price(), self.contract.default_currency)
 
-    def __unicode__(self):
+    def __str__(self):
         return _("Invoice") + " #" + str(self.id)
 
     @transaction.atomic()
@@ -703,7 +703,7 @@ class Unit(models.Model):
             ('view_unit', 'Can view units'),
         )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.shortname
 
 
@@ -718,7 +718,7 @@ class TaxRate(models.Model):
             ('view_tax', 'Can view tax rates'),
         )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -738,7 +738,7 @@ class UnitTransform(models.Model):
         verbose_name = _('Unit Transform')
         verbose_name_plural = _('Unit Transforms')
 
-    def __unicode__(self):
+    def __str__(self):
         return "From " + self.from_unit.shortname + " to " + self.to_unit.shortname
 
 
@@ -750,7 +750,7 @@ class HTMLFile(models.Model):
         verbose_name = _('HTML File')
         verbose_name_plural = _('HTML Files')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -766,7 +766,7 @@ class TemplateSet(models.Model):
         verbose_name = _('Templateset')
         verbose_name_plural = _('Templatesets')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -795,7 +795,7 @@ class CompanyContactData(SingletonModel):
         verbose_name = _('Company settings')
         verbose_name_plural = _('Company settings')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -811,8 +811,8 @@ class UserExtension(models.Model):
         verbose_name = _('User Extension')
         verbose_name_plural = _('User Extensions')
 
-    def __unicode__(self):
-        return self.user.__unicode__()
+    def __str__(self):
+        return self.user.__str__()
 
 
 class ProductUnit(models.Model):
@@ -823,7 +823,7 @@ class ProductUnit(models.Model):
         verbose_name = _('Product Unit')
         verbose_name_plural = _('Product Units')
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s [%s]" % (self.product, self.unit)
 
 
@@ -835,5 +835,5 @@ class ProductTax(models.Model):
         verbose_name = _('Product Taxrate')
         verbose_name_plural = _('Product Taxrates')
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s [%s]" % (self.product, self.tax)
