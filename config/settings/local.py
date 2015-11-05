@@ -42,7 +42,6 @@ CACHES = {
 # django-debug-toolbar
 # -----------------------------------------------------------------------------
 MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-INSTALLED_APPS += ('debug_toolbar', )
 
 INTERNAL_IPS = ('127.0.0.1', '10.0.2.2',)
 
@@ -57,14 +56,12 @@ CRISPY_FAIL_SILENTLY = not DEBUG
 # -----------------------------------------------------------------------------
 # OPTIONAL APPLICATIONS
 # These will be added to ``INSTALLED_APPS``, only if available.
-OPTIONAL_APPS = (
+PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
+INSTALLED_APPS += (
     "debug_toolbar",
     "django_extensions",
     PACKAGE_NAME_FILEBROWSER,
-    PACKAGE_NAME_GRAPPELLI,
 )
-INSTALLED_APPS += ('django_extensions', OPTIONAL_APPS)
-
 # TESTING
 # -----------------------------------------------------------------------------
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
