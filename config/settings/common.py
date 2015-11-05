@@ -9,7 +9,7 @@ APPS_DIR = ROOT_DIR.path('crm_core')
 # Loading environment variables, and including the file for local environment
 # definition
 env = environ.Env()
-environ.Env.read_env()
+environ.Env.read_env(ROOT_DIR('.env'))
 # MAIN DJANGO SETTINGS
 
 SITE_TITLE = 'Koalix ERP'
@@ -275,8 +275,9 @@ ROOT_URLCONF = 'config.urls'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db("DATABASE_URL", default="postgres:///djangocali-portal"),
+    'default': env.db("DATABASE_URL"),
 }
+print(DATABASES)
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # APPLICATIONS
