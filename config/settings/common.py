@@ -18,7 +18,8 @@ SITE_TAGLINE = 'An ERP for PyMES with a nicer interface.'
 # In the format (('Full Name', 'email@example.com'),
 #                ('Full Name', 'anotheremail@example.com'))
 ADMINS = (
-    ("""SWAPPS""", 'dev@swapps.co'),
+    (env('ADMIN_NAME', default="name"),
+     env('ADMIN_EMAIL', default="email@mail.com")),
 )
 MANAGERS = ADMINS
 
@@ -275,9 +276,9 @@ ROOT_URLCONF = 'config.urls'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db("DATABASE_URL"),
+    'default': env.db("DATABASE_URL", default="sqlite:///local.db"),
 }
-print(DATABASES)
+
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # APPLICATIONS
