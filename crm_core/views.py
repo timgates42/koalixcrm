@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 
 from braces.views import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.models import User

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 import reversion
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin

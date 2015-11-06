@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 """
 This file is part of django-international.
 Copyright (c) 2012 Monwara LLC.
