@@ -72,3 +72,4 @@ local_settings.py
 doc/build/
 /Theme/
 build
+htmlcov/
