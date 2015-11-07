@@ -1,4 +1,4 @@
-Django>1.8,<1.9
+Django==1.8.5
 Mezzanine>=4.0.1
 cartridge==0.10.0
 django-ajax-selects==1.3.6
