@@ -1,12 +1,11 @@
 language: python
 python:
- - "3.3"
  - "3.4"
 
 env:
-  matrix:
-   - DATABASE_URL='postgresql://postgres:@localhost:5432/my_db'
-   - DJANGO="Django<1.9"
+  - DATABASE_URL='postgresql://postgres:@localhost:5432/my_db'
+  - DJANGO_SECRET_KEY=CambiameDePorDios12345
+  - DJANGO="Django<1.9"
 
 services:
   - postgresql
@@ -33,9 +32,8 @@ before_script:
   - psql -c 'create database my_db;' -U postgres
 
 script:
-  
   - python manage.py check
-  # - python manage.py migrate --noinput
+  - python manage.py migrate --noinput
   - coverage run --source='.' manage.py test crm_core
   - coverage report
 after_success:
