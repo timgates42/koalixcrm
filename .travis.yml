@@ -25,6 +25,7 @@ before_install:
   - sudo apt-get install -y liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev
   - sudo apt-get install -y libxml2 libxml2-dev libxslt-dev python3-setuptools
   - sudo easy_install3 pip
+
 install:
   - pip3 install -r requirements/local.txt
   - pip3 install python-coveralls
