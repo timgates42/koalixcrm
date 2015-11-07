@@ -4,9 +4,8 @@ python:
  - "3.4"
 
 env:
-  - DATABASE_URL='postgresql://postgres:@localhost:5432/my_db'
-
   matrix:
+   - DATABASE_URL='postgresql://postgres:@localhost:5432/my_db'
    - DJANGO="Django<1.9"
 
 services:
