@@ -30,9 +30,9 @@ pip install --upgrade pip
 
 # Postgres Setup
 echo "Configuring Postgres DATABASE"
-sudo -u postgres psql postgres -U postgres -c "CREATE ROLE db_user WITH LOGIN ENCRYPTED PASSWORD 'password' CREATEDB CREATEROLE REPLICATION SUPERUSER"
-sudo -u postgres psql postgres -U postgres -c "CREATE DATABASE my_db"
-sudo -u postgres psql postgres -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE my_db TO db_user"
+sudo -u postgres psql postgres -U postgres -c "CREATE ROLE db_user WITH LOGIN ENCRYPTED PASSWORD 'password' CREATEDB CREATEROLE REPLICATION SUPERUSER;"
+sudo -u postgres psql postgres -U postgres -c "CREATE DATABASE my_db;"
+sudo -u postgres psql postgres -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE my_db TO db_user;"
 echo "listen_addresses = '*' " >> /etc/postgresql/9.3/main/postgresql.conf
 echo "host    all    all    all    password" >> /etc/postgresql/9.3/main/pg_hba.conf
 sudo service postgresql restart

@@ -3,20 +3,15 @@ import environ
 import os
 
 # Commented to be implemented later.
-# ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
-# APPS_DIR = ROOT_DIR.path('koalix_erp')
-
-# Full filesystem path to the project.
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# Name of the directory for the project.
-APPS_DIR = ROOT_DIR.split(os.sep)[-1]
+ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
+APPS_DIR = ROOT_DIR.path('crm_core')
 
 # Loading environment variables, and including the file for local environment
 # definition
 env = environ.Env()
-environ.Env.read_env()
 
+if os.path.isfile(ROOT_DIR('.env')):
+    environ.Env.read_env(ROOT_DIR('.env'))
 # MAIN DJANGO SETTINGS
 
 SITE_TITLE = 'Koalix ERP'
@@ -25,7 +20,8 @@ SITE_TAGLINE = 'An ERP for PyMES with a nicer interface.'
 # In the format (('Full Name', 'email@example.com'),
 #                ('Full Name', 'anotheremail@example.com'))
 ADMINS = (
-    ("""SWAPPS""", 'dev@swapps.co'),
+    (env('ADMIN_NAME', default="name"),
+     env('ADMIN_EMAIL', default="email@mail.com")),
 )
 MANAGERS = ADMINS
 
@@ -236,27 +232,6 @@ STATICFILES_FINDERS = (
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
 
-#############
-# DATABASES #
-#############
-
-DATABASES = {
-    "default": {
-        # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
-        # DB name or path to database file if using sqlite3.
-        "NAME": "",
-        # Not used with sqlite3.
-        "USER": "",
-        # Not used with sqlite3.
-        "PASSWORD": "",
-        # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "",
-        # Set to empty string for default. Not used with sqlite3.
-        "PORT": "",
-    }
-}
-
 MIGRATION_MODULES = {
     "shop": "crm_core.migrations.shop",
 }
@@ -274,11 +249,11 @@ STATIC_URL = "/static/"
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(ROOT_DIR, STATIC_URL.strip("/"))
+STATIC_ROOT = str(ROOT_DIR('static'))
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(ROOT_DIR, "media")
+MEDIA_ROOT = str(ROOT_DIR('media'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -289,14 +264,28 @@ MEDIA_URL = '/media/'
 # or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
+
 TEMPLATE_DIRS = (
-    os.path.join(ROOT_DIR, "crm_core/templates"),
-    os.path.join(ROOT_DIR, "templates"),
+    str(ROOT_DIR("crm_core/templates")),
+    str(ROOT_DIR("templates")),
 )
 
-# APPLICATIONS
+# Package/module name to import the root urlpatterns from for the project.
+ROOT_URLCONF = 'config.urls'
 
+# DATABASE CONFIGURATION
+# -----------------------------------------------------------------------------
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+DATABASES = {
+    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+    'default': env.db("DATABASE_URL", default="sqlite:///local.db"),
+}
+
+DATABASES['default']['ATOMIC_REQUESTS'] = True
+
+# APPLICATIONS
 INSTALLED_APPS = (
+    "grappelli_safe",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -379,8 +368,6 @@ MIDDLEWARE_CLASSES = (
 
 # Store these package names here as they may change in the future since
 # at the moment we are using custom forks of them.
-PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
-PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 SEARCH_MODEL_CHOICES = None
