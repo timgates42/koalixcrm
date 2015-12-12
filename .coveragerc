@@ -1,9 +1,13 @@
 [run]
-include = crm_core/*
+include =
+    crm_core/*
+omit =
+    config/*
+    */migrations/*
 
 [report]
 exclude_lines =
-  pragma: no cover
+    pragma: no cover
 
     # Don't complain about missing debug-only code:
     def __unicode__
@@ -18,9 +22,5 @@ exclude_lines =
     # Don't complain if non-runnable code isn't run:
     if 0:
     if __name__ == .__main__.:
-
-omit =
-    config/*
-    */migrations/*
 
 show_missing = True
