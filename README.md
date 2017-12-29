@@ -31,6 +31,11 @@ Bountysource:
 Donate:
     [![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ES8RFB7JN9CXC)
 
+    [BTC Donation] 35bfZEE6NknfBVnEd86XZpGgqKeVjmXQxn
+
+    [ETH Donation] 0xc9eb5eaed97c94cd47def84fd23a9802fa40384b
+
+    [LTC Donation] LW4cbjTYCYuymdCBQRzgkRWMGfLBaG5g4C
 
 
 *****************************************************
