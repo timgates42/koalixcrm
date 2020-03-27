@@ -11,7 +11,7 @@ koalixcrm tries to keep near the real world objects. Lets say you wanna register
 a customer in your koalixcrm. When you just received a question for an quote, you find a quote in your koalixcrm. Same
 for many kind of business objects you know in your company.
 Every such real world objects is represented in the admin start page (called "dashboard") as row of the applicationtable, every 
-objects has a name - of cause - an add and a modifie button. When you want to create a customer you just press the "add"
+objects has a name - of cause - an add and a modify button. When you want to create a customer you just press the "add"
 button in the customer row and you will soon get a form (called "object_modify_view") to fill out save your customer. By pressing the modify-, or the name
 button of the object you get a list of all objects (called "objects_list") you already saved.
 
@@ -35,7 +35,7 @@ objects_list
 ------------
 From the dashboard your able to select one object type by clicking on the name of it. What you get is a quite detailed list of
 objects of this object type. The objects list is the place you will mostly be in. You have the possibility to select any 
-of the listet objects and apply "actions" on it, you can simply press on the id of the object to get a modifie view of the
+of the listet objects and apply "actions" on it, you can simply press on the id of the object to get a modify view of the
 object.
 
 Adding A New Object To The List
