@@ -22,7 +22,7 @@ These were the possible customer payment accounts you ware able to select when y
 Is the Open Liabilities Account
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is not implemented yet because the link between Accounting and CRM is not yet finised for the purchase order site (where you were buying not selling)
+This is not implemented yet because the link between Accounting and CRM is not yet finished for the purchase order site (where you were buying not selling)
 This is anyway most often not used by companies because its to much effort to copy all the invoices you get from your suppliers into your system. Normaly you will only book this manualy and
 store the invoce you got form your supplier phsyicaly in a filer in your office. If you do so think about using a good description so that you find the invoice in case of a tax control (in fact 
 i never had a tax control in my company but i think they are really intrested in such things :-) )

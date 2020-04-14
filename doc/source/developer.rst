@@ -32,7 +32,7 @@ Adjust it to the following:
 msgid "phonenumber"
 msgstr "nombre de telefon"
 
-After you finised translating the whole file test your translation by compiling it. 
+After you finished translating the whole file test your translation by compiling it. 
 
 django-admin compilemessages 
 
